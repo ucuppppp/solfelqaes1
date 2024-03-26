@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masonry Layout</title>
+    <style>
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 960px;
+        height: 700px;
+        margin: auto;
+        /* outline: solid 1px; */
+        gap: 10px;
+      }
+
+      .wrapper1 {
+        display: grid;
+        grid-template-rows: 40% 25% 35%;
+        /* outline: solid 1px; */
+        gap: 10px;
+      }
+      .wrapper2 {
+        display: grid;
+        grid-template-rows: 25% 40% 35%;
+        /* outline: solid 1px; */
+        gap: 10px;
+      }
+      .wrapper3 {
+        display: grid;
+        grid-template-rows: 35% 25% 40%;
+        /* outline: solid 1px; */
+        gap: 10px;
+      }
+
+      .box {
+        background-color: #aaa;
+      }
+
+      /* @media screen{
+            .container{
+                grid-template-columns:1fr 1fr;
+            } */
+
+      @media screen and (max-width: 740px) {
+        /* .container{
+                    width: 100%;
+                    padding: 0 2rem;
+                } */
+        .container {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        /* body {
+                    background-color: aqua;
+                } */
+      }
+      /* @media screen {
+            width: 700px;
+        } */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper1">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+      <div class="wrapper2">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+      <div class="wrapper3">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+      </div>
+    </div>
+  </body>
+</html>

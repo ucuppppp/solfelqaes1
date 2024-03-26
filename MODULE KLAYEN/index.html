@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <title>Hexaria</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            background-color: #1d1d1d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+       
+        .container{
+            width: 100vh;
+            margin: auto;
+            margin-top: 100px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .leaderboard{
+            outline: solid 1px white;
+            width: 30%;
+            color: white;
+            text-align: center;
+        }
+
+        #canvas{
+            outline: solid 1px white;
+            width: 70%;
+        }
+
+        .score{
+            /* position:absolute; */
+            display: flex;
+            /* outline: solid 1px white; */
+            gap: 20px;
+            margin-top: 0;
+            color: white;
+            text-align: center;
+        }
+
+        .player{
+            display: flex;
+            flex-direction: column;
+        }
+        .bot{
+            display: flex;
+            flex-direction: column;
+        }
+
+    </style>
+</head>
+<body>
+    <img class="logo" src="logo.png" alt="" width="400" >
+    <div class="container">
+        <svg id="svg"></svg>
+        <canvas id="canvas" width="900" height="600"></canvas>
+        <div class="leaderboard">
+            <h3>Leaderboard</h3>
+            <div class="sort_by">
+                <span>Sort By :</span>
+                <select name="sort_by" id="sort_by">
+                    <option value="date">date</option>
+                    <option value="date">Highest Score</option>
+                </select>
+            </div>
+            <hr>
+            <div class="detail">
+                <div class="span">Player vs Irfan</div>
+                <div class="span">48 - 32</div>
+                <button>Detail</button>
+            </div>
+            <hr>
+            <div class="detail">
+                <div class="span">Player vs Irfan</div>
+                <div class="span">40 - 40</div>
+                <button>Detail</button>
+            </div>
+            <hr>
+            <div class="detail">
+                <div class="span">Player vs Jaki</div>
+                <div class="span">25 - 55</div>
+                <button>Detail</button>
+            </div>
+        </div>
+    </div>
+    <div class="score">
+        <div class="player">
+            <span>Player</span>
+            <span>25</span>
+        </div>
+        <div class="bot">
+            <span>Bot</span>
+            <span>100</span>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('canvas')
+        const ctx = canvas.getContext('2d')
+        const svg = document.getElementById('svg')
+        const soundClick = new Audio('click.mp3')
+        soundClick.volume = 0.5;
+        let currentPlayer = 1;
+
+        initialGame()
+
+        const rows = 8
+        const cols = 10
+        const x = 50
+        y = 50
+
+        const randomNumbers = Array.from({length:rows * cols}, () => Math.floor(Math.random() * 20) + 1)
+
+        // console.log(randomNumbers)
+
+        
+
+        // let points = [((x * i) + 25, (y * j) + 25),
+        //         ((x * i) + 25, (y * j) + 50),
+        //         ((x * i), (y * j) + 100),
+        //         ((x * i) - 25, (y * j) + 150),
+        //         ((x * i) - 25, (y * j) + 100),
+        //         ((x * i) + 25, (y * j) + 50),
+        //         ((x * i) + 25, (y * j) + 25)]
+
+        // for(let i = 0; i < cols; i++){
+        //     for(let j = 0; j < rows; j++){
+        // const hexagon = document.createElementNS("http://www.w3.org/2000/svg", 'polygon')
+        // const textElement = document.createElementNS("http://www.w3.org/2000/svg", 'text')
+        // hexagon.setAttribute('points', points)
+
+        // hexagon.setAttribute('background-color', 'blue')
+        // hexagon.addEventListener('click', () => {
+        //         currentPlayer = 3 - currentPlayer;
+        //     soundClick.play()
+        // });
+        // svg.append(hexagon)
+        //     }
+        // }
+
+        // for(let i = 0; i < cols; i++){
+        //     for(let j = 0; j < rows; j++){
+        //         ctx.lineWidth = 2
+        //         ctx.strokeStyle = "white"
+        //         ctx.beginPath()
+        //         ctx.moveTo((x * i) + 20, (y * i) + 20)
+        //         ctx.lineTo((x * i) + 25, (y * j) + 25),
+        //         ctx.lineTo((x * i) + 25, (y * j) + 50),
+        //         ctx.lineTo((x * i), (y * j) + 100),
+        //         ctx.lineTo((x * i) - 25, (y * j) + 150),
+        //         ctx.lineTo((x * i) - 25, (y * j) + 100),
+        //         ctx.lineTo((x * i) + 25, (y * j) + 50),
+        //         ctx.lineTo((x * i) + 25, (y * j) + 25)
+        //         ctx.stroke()
+        //     }
+        // }
+        
+        
+        
+        function initialGame(){
+            // ctx.textStyle = 'white'
+            ctx.font = '24px sans-serif'
+            ctx.fontStyle = 'white'
+            ctx.fillRect(410, 307, 200, 40)
+            ctx.fillStyle = "white"
+            ctx.fillText('Welcome To Hexaria', 400, 290, 500)
+            ctx.fillText('Click to Start', 440, 335)
+            // console.log(ctx)
+        }
+
+        // console.log(hexagon)
+
+    </script>
+</body>
+</html>

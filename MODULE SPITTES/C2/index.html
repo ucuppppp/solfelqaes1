@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C2. Compare Image</title>
+    <style>
+        body{
+            height: 100vh;
+        }
+
+        .grayscale{
+            /* display: flex; */
+            outline: solid 1px white;
+            width: 300px;
+            overflow: hidden;
+            width: 300px;
+            position: absolute;
+            top: 2;
+            z-index: 1;
+        }
+
+        .grayscale img{
+            filter: grayscale();
+        }
+
+        #slider{
+            position: absolute;
+            -webkit-appearance: none;
+            width: 620px;
+            height: 350px;
+            margin-left: -10px;
+            z-index: 999;
+            background: none;
+            overflow: hidden;
+        }
+        #slider::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            cursor: ew-resize;
+            background: white;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+    <input type="range" id="slider" oninput="checkGrayscale(this)">
+    <div class="grayscale" id="grayscale">
+        <img src="./image.webp" alt="" width="600">
+    </div>
+    <img src="./image.webp" alt="" width="600">
+    <script>
+        
+        function checkGrayscale(e){
+            document.getElementById('grayscale').style.width = e.value / 100 * 600 + 'px'
+        }
+
+    </script>
+</body>
+</html>
